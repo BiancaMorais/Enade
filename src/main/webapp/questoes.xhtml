@@ -62,10 +62,6 @@
                                 <f:setPropertyActionListener target="#{questaoBean.questao}" value="#{lista}" />
                             </p:commandButton>
                             
-                            <p:commandButton icon="ui-icon-check" value="Anular" onclick="PF('anular').show();">
-                                <f:setPropertyActionListener value="#{lista}" target="#{questaoBean.questao}" />
-                            </p:commandButton>
-                            
                         </center>
                     </p:column>
 
@@ -112,17 +108,17 @@
                         <f:selectItem itemLabel="Objetiva Especifica" itemValue="Objetiva Especifica" />
                     </p:selectOneMenu>
                     DESCRIÇÃO:
-                    <p:inputText id="desc" value="#{questaoBean.questao.descricaoQuestao}"/>
+                    <p:inputTextarea id="desc" value="#{questaoBean.questao.descricaoQuestao}"/>
                     ALTERANTIVA A:
-                    <p:inputText id="a" value="#{questaoBean.questao.alternativaA}"/>
+                    <p:inputTextarea id="a" value="#{questaoBean.questao.alternativaA}"/>
                     ALTERANTIVA B:
-                    <p:inputText id="b" value="#{questaoBean.questao.alternativaB}"/>
+                    <p:inputTextarea id="b" value="#{questaoBean.questao.alternativaB}"/>
                     ALTERANTIVA C:
-                    <p:inputText id="c" value="#{questaoBean.questao.alternativaC}"/>
+                    <p:inputTextarea id="c" value="#{questaoBean.questao.alternativaC}"/>
                     ALTERANTIVA D:
-                    <p:inputText id="d" value="#{questaoBean.questao.alternativaD}"/>
+                    <p:inputTextarea id="d" value="#{questaoBean.questao.alternativaD}"/>
                     ALTERANTIVA E:
-                    <p:inputText id="e" value="#{questaoBean.questao.alternativaE}"/>
+                    <p:inputTextarea id="e" value="#{questaoBean.questao.alternativaE}"/>
                     ALTERANTIVA CORRETA:
                     <p:selectOneMenu id="correto" value="#{questaoBean.questao.questaoCorreta}" style="width:155px">
                         <f:selectItem itemLabel="Selecione" itemValue="" />
@@ -145,12 +141,6 @@
                 <br/>
                 <p:commandButton value="Salvar" actionListener="#{questaoBean.record}" onclick="record.hide()" alt="Record"/> 
                 
-            </p:dialog>
-            
-            <p:dialog header="Anular" widgetVar="anular" modal="false"> 
-                Deseja anular a questão?
-                <p:commandButton value="Anular"  
-                                 actionListener="#{questaoBean.anular}" onclick="anular.hide()" alt="anular" /> 
             </p:dialog>
             
         </h:form>
