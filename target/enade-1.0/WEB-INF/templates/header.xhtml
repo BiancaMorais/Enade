@@ -1,0 +1,31 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <header>
+        <p:graphicImage value="/resources/images/ces.png" style="max-height: 110px; float: left"/>   
+        <h1 style="margin-left: 320px">SISTEMA ENADE - BIANCA MORAIS SOUZA</h1>
+        <div style="color: white; margin-left: 1000px; margin-top: 1px; font-size: 20px">
+            <p:outputLabel value="BEM VINDO #{usuario.nomeUsuario.toUpperCase()}!" style="color: white"/>
+        </div>
+        
+        <h:form>  
+            <p:menubar>
+                <p:menuitem value="Início" icon="ui-icon-home" url="/faces/index.xhtml" />
+
+                <p:submenu label="Gerenciar" icon="ui-icon-gear">
+                    <p:menuitem value="Usuário" icon="ui-icon-person" url="/faces/usuarios.xhtml"/>
+                    <p:menuitem value="Provas" icon="ui-icon-person" url="/faces/provas.xhtml"/>
+                    <p:menuitem value="Questoes" icon="ui-icon-person" url="/faces/questoes.xhtml"/>
+                    <p:menuitem value="Resultados" icon="ui-icon-person" url="/faces/resultado.xhtml"/>
+                    <p:menuitem value="Prova x Questão" icon="ui-icon-person" url="/faces/provaquestao.xhtml"/>
+                </p:submenu>
+                
+                <p:menuitem value="Sair" icon="ui-icon-power" url="../" />
+            </p:menubar>
+        </h:form>
+        
+    </header>
+</ui:composition>
