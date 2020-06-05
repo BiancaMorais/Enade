@@ -3,11 +3,11 @@ create database enade;
 use enade;
 
 create table usuario(
-	idUsuario int not null auto_increment primary key,
+	idUsuario bigint not null auto_increment primary key,
     nomeUsuario varchar(45) default null,
     emailUsuario varchar(255) default null,
     tipoUsuario enum('Professor', 'Aluno') default null,
-    senhaUsuario varchar(30)
+    senhaUsuario varchar(30) default null
 );
 
 create table prova(
@@ -24,8 +24,8 @@ create table questao(
     alternativaC varchar(45) default null,
     alternativaD varchar(45) default null,
     alternativaE varchar(45) default null,
-    questaoCorreta enum('A', 'B', 'C', 'D', 'E'),
-    estadoQuestao enum('Anulado', 'Validado') default null
+    questaoCorreta enum('A', 'B', 'C', 'D', 'E', 'Discursiva') default null,
+    estadoQuestao enum('Anulado', 'Validado', 'Analise') default null
 );
 
 create table provaQuestao(
@@ -42,7 +42,7 @@ create table resultado(
 	idResultado bigint not null auto_increment primary key,
     valorObtido double default null,
     idProva bigint default null,
-    idUsuario int default null,
+    idUsuario bigint default null,
     constraint fk_resultado_prova foreign key(idProva) references prova(idProva)
     on delete cascade on update cascade,
     constraint fk_resultado_usuario foreign key(idUsuario) references usuario(idUsuario)
@@ -51,4 +51,3 @@ create table resultado(
 
 insert into usuario (nomeUsuario, emailUsuario, tipoUsuario, senhaUsuario) 
 values ('Professor', 'prof@gmail.com', 'Professor', 'prof123');
-

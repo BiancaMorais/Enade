@@ -54,7 +54,7 @@ public class UsuarioDao {
         Query query = em.createQuery("from Usuario As u where u.tipoUsuario = 'Aluno'");
         return query.getResultList();
     }
-    
+            
     public List<Usuario> buscarUsuarioeInstancia() {
         EntityManager em = PersistenceUtil.getEntityManager();
         Query query = em.createQuery("select distinct u from Usuario u group by u.nomeUsuario");

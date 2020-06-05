@@ -15,12 +15,16 @@
             <p:menubar>
                 <p:menuitem value="Início" icon="ui-icon-home" url="/faces/index.xhtml" />
 
-                <p:submenu label="Gerenciar" icon="ui-icon-gear">
+                <p:submenu label="Gerenciar" icon="ui-icon-gear" rendered="#{usuario.tipoUsuario.equals('Professor')}">
                     <p:menuitem value="Usuário" icon="ui-icon-person" url="/faces/usuarios.xhtml"/>
                     <p:menuitem value="Provas" icon="ui-icon-person" url="/faces/provas.xhtml"/>
                     <p:menuitem value="Questoes" icon="ui-icon-person" url="/faces/questoes.xhtml"/>
                     <p:menuitem value="Resultados" icon="ui-icon-person" url="/faces/resultado.xhtml"/>
                     <p:menuitem value="Prova x Questão" icon="ui-icon-person" url="/faces/provaquestao.xhtml"/>
+                </p:submenu>
+                
+                <p:submenu label="Gerenciar" icon="ui-icon-gear" rendered="#{usuario.tipoUsuario.equals('Aluno')}">
+                    <p:menuitem value="Dados" icon="ui-icon-person" url="/faces/aluno.xhtml"/>
                 </p:submenu>
                 
                 <p:menuitem value="Sair" icon="ui-icon-power" url="../" />
