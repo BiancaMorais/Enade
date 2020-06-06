@@ -37,43 +37,42 @@ import org.apache.poi.ss.usermodel.FillPatternType;
 @ManagedBean
 @ViewScoped
 public class ProvaQuestaoBean {
-    Provaquestao provaquestao = new Provaquestao();
-    List provaquest = new ArrayList();
+    Provaquestao pq = new Provaquestao();
+    List pqs = new ArrayList();
     
     public ProvaQuestaoBean(){
-        provaquest = new ProvaQuestaoDao().buscarTodas();
-        provaquestao = new Provaquestao();
+        pqs = new ProvaQuestaoDao().buscarTodas();
+        pq = new Provaquestao();
     }
     
-    //Métodos dos botões 
-    public void record(ActionEvent actionEvent) {
-        new ProvaQuestaoDao().persistir(provaquestao);
-        provaquest = new ProvaQuestaoDao().buscarTodas();
-        provaquestao = new Provaquestao();
+    //Métodos dos botões
+    public void record(ActionEvent actionEvent){
+        new ProvaQuestaoDao().persistir(pq);
+        pqs = new ProvaQuestaoDao().buscarTodas();
+        pq = new Provaquestao();
     }
-
-    public void exclude(ActionEvent actionEvent) {
-        new ProvaQuestaoDao().remover(provaquestao);
-        provaquest = new ProvaQuestaoDao().buscarTodas();
-        provaquestao = new Provaquestao();
+    
+    public void exclude(ActionEvent actionEvent){
+        new ProvaQuestaoDao().remover(pq);
+        pqs = new ProvaQuestaoDao().buscarTodas();
+        pq = new Provaquestao();
     }
     
     //getters and setters
-
-    public Provaquestao getProvaquestao() {
-        return provaquestao;
+    public Provaquestao getPq(){
+        return pq;
     }
-
-    public void setProvaquestao(Provaquestao provaquestao) {
-        this.provaquestao = provaquestao;
+    
+    public void setPq(Provaquestao pq){
+        this.pq = pq;
     }
-
-    public List getProvaquest() {
-        return provaquest;
+    
+    public List getPqss(){
+        return pqs;
     }
-
-    public void setProvaquest(List provaquest) {
-        this.provaquest = provaquest;
+    
+    public void setPqss(List pqs){
+        this.pqs = pqs;
     }
     
     public void postProcessXLS(Object document) {
@@ -102,5 +101,4 @@ public class ProvaQuestaoBean {
 
         // pdf.add(Image.getInstance(logo));
     }
-    
 }

@@ -27,7 +27,7 @@ public class ProvaQuestaoDao {
     
     public Provaquestao buscar(Long idProvaQuestao) {
         EntityManager em = PersistenceUtil.getEntityManager();
-        Query query = em.createQuery("select p from ProvaQuestao p where p.idProvaQuestao =:idProvaQuestao ");
+        Query query = em.createQuery("select p from Provaquestao p where p.idProvaQuestao =:idProvaQuestao ");
         query.setParameter("idProvaQuestao", idProvaQuestao);
 
         List<Provaquestao> provaList = query.getResultList();
@@ -39,37 +39,36 @@ public class ProvaQuestaoDao {
     
     public List<Provaquestao> buscarTodas() {
         EntityManager em = PersistenceUtil.getEntityManager();
-        Query query = em.createQuery("from ProvaQuestao As p");
+        Query query = em.createQuery("from Provaquestao As p");
         return query.getResultList();
     }
     
     public List<Provaquestao> buscarProvaInstancia() {
         EntityManager em = PersistenceUtil.getEntityManager();
-        Query query = em.createQuery("select distinct p from ProvaQuestao p ");
+        Query query = em.createQuery("select distinct p from Provaquestao p ");
         return query.getResultList();
     }
     
-    public void remover(Provaquestao provaquestao) {
+    public void remover(Provaquestao pq) {
         EntityManager em = PersistenceUtil.getEntityManager();
         em.getTransaction().begin();
-        if (!em.contains(provaquestao)) {
-            provaquestao = em.merge(provaquestao);
+        if (!em.contains(pq)) {
+            pq = em.merge(pq);
         }
-        em.remove(provaquestao);
+        em.remove(pq);
         em.getTransaction().commit();
     }
     
-    public Provaquestao persistir(Provaquestao provaquestao) {
+    public Provaquestao persistir(Provaquestao pq) {
         EntityManager em = PersistenceUtil.getEntityManager();
         em.getTransaction().begin();
         try {
-            provaquestao = em.merge(provaquestao);
+            pq = em.merge(pq);
             em.getTransaction().commit();
-            System.out.println("Registro provaquestao gravado com sucesso");
+            System.out.println("Registro Provaquestao gravado com sucesso");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return provaquestao;
+        return pq;
     }
-    
 }
