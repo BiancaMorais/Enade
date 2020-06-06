@@ -125,11 +125,15 @@ public class UsuarioBean{
         }
         else
         {
-            FacesContext.getCurrentInstance().addMessage(
-					null,
-					new FacesMessage(FacesMessage.SEVERITY_WARN,
-							"Login ou senha incorretos!",
-							"Favor inserir usuário e senha novamente!"));
+//            FacesContext.getCurrentInstance().addMessage(
+//					null,
+//					new FacesMessage(FacesMessage.SEVERITY_WARN,
+//							"Login ou senha incorretos!",
+//							"Favor inserir usuário e senha novamente!"));
+            
+            FacesContext.getCurrentInstance().getExternalContext()
+                    .redirect("cadastro.xhtml");
         }
     }
+    
 }

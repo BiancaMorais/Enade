@@ -18,7 +18,7 @@
                     <h:form id="formLogin">
                         <p:panel style="text-align: center; width: 800px; margin: auto; margin-top: 80px;">
                             
-                            <f:facet name="header">SISTEMA ENADE</f:facet>
+                            <f:facet name="header">LOGIN</f:facet>
                             <br/>
                             <h:panelGrid columns="1" width="100%">
                                 <p style="margin: 0; font-weight: bold;">Login</p>
@@ -31,6 +31,31 @@
                             <br/>
                             
                             <p:commandButton value="Login" action="#{usuarioBean.login()}" ajax="false"/>
+                            
+                        </p:panel>
+                    </h:form>
+                
+                    <h:form id="formCadastro">
+                        <p:panel style="text-align: center; width: 800px; margin: auto; margin-top: 80px;">
+                            
+                            <f:facet name="header">CADASTRO</f:facet>
+                            <br/>
+                            <h:panelGrid columns="1" width="100%">
+                                Nome:
+                                <p:inputText id="name" value="#{usuarioBean.usuario.nomeUsuario}"/>
+                                Email:
+                                <p:inputText id="email" value="#{usuarioBean.usuario.emailUsuario}" />
+                                Tipo de Usuário:
+                                <p:selectOneMenu id="tipo" value="#{usuarioBean.usuario.tipoUsuario}" style="width:125px">
+                                    <f:selectItem itemLabel="Aluno" itemValue="Aluno" />
+                                    <f:selectItem itemLabel="Professor" itemValue="Professor" itemDisabled="true"/>
+                                </p:selectOneMenu>
+                                Senha:
+                                <p:password id="senha" value="#{usuarioBean.usuario.senhaUsuario}"/>
+                            </h:panelGrid>
+                            <br/>
+                            
+                            <p:commandButton value="Salvar" actionListener="#{usuarioBean.record}"/>
                             
                         </p:panel>
                         
