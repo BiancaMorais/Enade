@@ -39,10 +39,12 @@ import org.apache.poi.ss.usermodel.FillPatternType;
 public class QuestaoBean {
     Questao questao = new Questao();
     List questoes = new ArrayList();
+    List valido = new ArrayList();
 
     public QuestaoBean() {
         questoes = new QuestaoDao().buscarTodas();
         questao = new Questao();
+        valido = new QuestaoDao().buscarValido();
     }
     
     //Métodos dos botões 
@@ -69,6 +71,13 @@ public class QuestaoBean {
         this.questoes = questoes;
     }
 
+    public List getValido() {
+        return valido;
+    }
+
+    public void setValido(List valido) {
+        this.valido = valido;
+    }
     
     public void postProcessXLS(Object document) {
         HSSFWorkbook wb = (HSSFWorkbook) document;

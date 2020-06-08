@@ -115,19 +115,29 @@
                         <f:selectItem itemLabel="Discursiva Especifica" itemValue="Discursiva Especifica" />
                         <f:selectItem itemLabel="Objetiva Geral" itemValue="Objetiva Geral" />
                         <f:selectItem itemLabel="Objetiva Especifica" itemValue="Objetiva Especifica" />
+                        <p:ajax update="a" />
+                        <p:ajax update="b" />
+                        <p:ajax update="c" />
+                        <p:ajax update="d" />
+                        <p:ajax update="e" />
                     </p:selectOneMenu>
                     DESCRIÇÃO:
                     <p:inputTextarea id="desc" value="#{questaoBean.questao.descricaoQuestao}"/>
                     ALTERANTIVA A:
-                    <p:inputTextarea id="a" value="#{questaoBean.questao.alternativaA}"/>
+                    <p:inputTextarea id="a" value="#{questaoBean.questao.alternativaA}" disabled="#{questaoBean.questao.tipoQuestao == 'Discursiva Geral' || 
+                        questaoBean.questao.tipoQuestao == 'Discursiva Especifica'}"/>
                     ALTERANTIVA B:
-                    <p:inputTextarea id="b" value="#{questaoBean.questao.alternativaB}"/>
+                    <p:inputTextarea id="b" value="#{questaoBean.questao.alternativaB}" disabled="#{questaoBean.questao.tipoQuestao == 'Discursiva Geral' || 
+                        questaoBean.questao.tipoQuestao == 'Discursiva Especifica'}"/>
                     ALTERANTIVA C:
-                    <p:inputTextarea id="c" value="#{questaoBean.questao.alternativaC}"/>
+                    <p:inputTextarea id="c" value="#{questaoBean.questao.alternativaC}" disabled="#{questaoBean.questao.tipoQuestao == 'Discursiva Geral' || 
+                        questaoBean.questao.tipoQuestao == 'Discursiva Especifica'}"/>
                     ALTERANTIVA D:
-                    <p:inputTextarea id="d" value="#{questaoBean.questao.alternativaD}"/>
+                    <p:inputTextarea id="d" value="#{questaoBean.questao.alternativaD}" disabled="#{questaoBean.questao.tipoQuestao == 'Discursiva Geral' || 
+                        questaoBean.questao.tipoQuestao == 'Discursiva Especifica'}"/>
                     ALTERANTIVA E:
-                    <p:inputTextarea id="e" value="#{questaoBean.questao.alternativaE}"/>
+                    <p:inputTextarea id="e" value="#{questaoBean.questao.alternativaE}" disabled="#{questaoBean.questao.tipoQuestao == 'Discursiva Geral' || 
+                        questaoBean.questao.tipoQuestao == 'Discursiva Especifica'}"/>
                     ALTERANTIVA CORRETA:
                     <p:selectOneMenu id="correto" value="#{questaoBean.questao.questaoCorreta}" style="width:155px">
                         <f:selectItem itemLabel="Selecione" itemValue="" />

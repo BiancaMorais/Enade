@@ -54,16 +54,25 @@
             <div align="center">
                 <h3>Exportar dados da página</h3>
 
+                <h:commandLink id="excel">
+                    <p:graphicImage name="./images/exports/excel.png" />
+                    <p:dataExporter type="xls" target="tabelaAgent" fileName="usuarios" postProcessor="#{usuarioBean.postProcessXLS}" />
+                </h:commandLink>
+
+                <h:commandLink id="pdf">
+                    <p:graphicImage name="./images/exports/pdf.png" />
+                    <p:dataExporter type="pdf" target="tabelaAgent" fileName="usuarios" preProcessor="#{usuarioBean.preProcessPDF}" />
+                </h:commandLink>
 
 
                 <h:commandLink>
                     <p:graphicImage name="./images/exports/csv.png" width="24"/>
-                    <p:dataExporter type="csv" target="tabelaProvaQuestao" fileName="provaQuestao" />
+                    <p:dataExporter type="csv" target="tabelaAgent" fileName="usuarios" />
                 </h:commandLink>
 
                 <h:commandLink>
                     <p:graphicImage  name="./images/exports/xml.png" width="24"/>
-                    <p:dataExporter type="xml" target="tabelaProvaQuestao" fileName="provaQuestao" />
+                    <p:dataExporter type="xml" target="tabelaAgent" fileName="usuarios" />
                 </h:commandLink>
             </div>
 
@@ -71,6 +80,7 @@
                 <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />  
                 <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />  
             </p:confirmDialog>  
+  
 
 
             <p:dialog header="Novo" widgetVar="record" modal="true" focus="prova">
@@ -83,7 +93,7 @@
                     QUESTÃO:
                     <p:selectOneMenu id="questao" value="#{provaQuestaoBean.pq.idQuestao}" converter="questaoConverter">
                         <f:selectItem itemLabel="Selecione" itemValue="" />
-                        <f:selectItems value="#{questaoBean.questoess}" var="questao" itemLabel="#{questao.idQuestao}" itemValue="#{questao}" />
+                        <f:selectItems value="#{questaoBean.valido}" var="questao" itemLabel="#{questao.idQuestao}" itemValue="#{questao}" />
                     </p:selectOneMenu>
                 </p:panelGrid>  
                 <br/>

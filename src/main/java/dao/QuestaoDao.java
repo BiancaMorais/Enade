@@ -43,6 +43,12 @@ public class QuestaoDao {
         return query.getResultList();
     }
     
+    public List<Questao> buscarValido() {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        Query query = em.createQuery("from Questao As q where q.estadoQuestao = 'Validado'");
+        return query.getResultList();
+    }
+    
     public List<Questao> buscarProvaInstancia() {
         EntityManager em = PersistenceUtil.getEntityManager();
         Query query = em.createQuery("select distinct q from Questao q ");

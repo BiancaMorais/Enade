@@ -6,13 +6,13 @@ create table usuario(
 	idUsuario bigint not null auto_increment primary key,
     nomeUsuario varchar(45) default null,
     emailUsuario varchar(255) default null,
-    tipoUsuario enum('Professor', 'Aluno') default null,
+    tipoUsuario varchar(9) default null comment 'Só aceitar valores de aluno e professor',
     senhaUsuario varchar(30) default null
 );
 
 create table prova(
 	idProva bigint not null auto_increment primary key,
-    dataProva int default null
+    dataProva int default null comment 'Ano da prova'
 );
 
 create table questao(
@@ -29,7 +29,7 @@ create table questao(
 );
 
 create table provaQuestao(
-	idProvaQuestao bigint not null auto_increment primary key,
+	idProvaQuestao bigint not null auto_increment primary key comment 'Selecionar quais questões vão entrar em quais provas',
     idProva bigint default null,
     idQuestao bigint default null,
     constraint fk_pq_prova foreign key(idProva) references prova(idProva)
@@ -51,3 +51,4 @@ create table resultado(
 
 insert into usuario (nomeUsuario, emailUsuario, tipoUsuario, senhaUsuario) 
 values ('Professor', 'prof@gmail.com', 'Professor', 'prof123');
+
