@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -37,6 +38,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Usuario.findBySenhaUsuario", query = "SELECT u FROM Usuario u WHERE u.senhaUsuario = :senhaUsuario")})
 public class Usuario implements Serializable {
 
+    @OneToOne(mappedBy = "idUsuario")
+    private Provaaluno provaaluno;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,6 +61,8 @@ public class Usuario implements Serializable {
     private String senhaUsuario;
     @OneToMany(mappedBy = "idUsuario")
     private List<Resultado> resultadoList;
+    @OneToMany(mappedBy = "idProva")
+    private List<Provaaluno> provaalunoList;
 
     public Usuario() {
     }
@@ -113,6 +119,15 @@ public class Usuario implements Serializable {
     public void setResultadoList(List<Resultado> resultadoList) {
         this.resultadoList = resultadoList;
     }
+    
+    @XmlTransient
+    public List<Provaaluno> getProvaalunoList() {
+        return provaalunoList;
+    }
+
+    public void setProvaalunoList(List<Provaaluno> provaalunoList) {
+        this.provaalunoList = provaalunoList;
+    }
 
     @Override
     public int hashCode() {
@@ -137,6 +152,14 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "model.Usuario[ idUsuario=" + idUsuario + " ]";
+    }
+
+    public Provaaluno getProvaaluno() {
+        return provaaluno;
+    }
+
+    public void setProvaaluno(Provaaluno provaaluno) {
+        this.provaaluno = provaaluno;
     }
     
 }

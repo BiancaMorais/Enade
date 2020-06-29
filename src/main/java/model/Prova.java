@@ -45,6 +45,8 @@ public class Prova implements Serializable {
     private List<Resultado> resultadoList;
     @OneToMany(mappedBy = "idProva")
     private List<Provaquestao> provaquestaoList;
+    @OneToMany(mappedBy = "idProva")
+    private List<Provaaluno> provaalunoList;
 
     public Prova() {
     }
@@ -85,6 +87,15 @@ public class Prova implements Serializable {
 
     public void setProvaquestaoList(List<Provaquestao> provaquestaoList) {
         this.provaquestaoList = provaquestaoList;
+    }
+    
+    @XmlTransient
+    public List<Provaaluno> getProvaalunoList() {
+        return provaalunoList;
+    }
+
+    public void setProvaalunoList(List<Provaaluno> provaalunoList) {
+        this.provaalunoList = provaalunoList;
     }
 
     @Override

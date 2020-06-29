@@ -7,6 +7,8 @@
     <class>model.Questao</class>
     <class>model.Provaquestao</class>
     <class>model.Prova</class>
+    <class>model.Provaaluno</class>
+    <class>model.Resposta</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/enade?zeroDateTimeBehavior=convertToNull"/>

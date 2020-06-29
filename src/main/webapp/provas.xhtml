@@ -52,23 +52,23 @@
 
                 <h:commandLink id="excel">
                     <p:graphicImage name="./images/exports/excel.png" />
-                    <p:dataExporter type="xls" target="tabelaAgent" fileName="usuarios" postProcessor="#{usuarioBean.postProcessXLS}" />
+                    <p:dataExporter type="xls" target="tabelaProva" fileName="provas" postProcessor="#{provaBean.postProcessXLS}" />
                 </h:commandLink>
 
                 <h:commandLink id="pdf">
                     <p:graphicImage name="./images/exports/pdf.png" />
-                    <p:dataExporter type="pdf" target="tabelaAgent" fileName="usuarios" preProcessor="#{usuarioBean.preProcessPDF}" />
+                    <p:dataExporter type="pdf" target="tabelaProva" fileName="provas" preProcessor="#{provaBean.preProcessPDF}" />
                 </h:commandLink>
 
 
                 <h:commandLink>
                     <p:graphicImage name="./images/exports/csv.png" width="24"/>
-                    <p:dataExporter type="csv" target="tabelaAgent" fileName="usuarios" />
+                    <p:dataExporter type="csv" target="tabelaProva" fileName="provas" />
                 </h:commandLink>
 
                 <h:commandLink>
                     <p:graphicImage  name="./images/exports/xml.png" width="24"/>
-                    <p:dataExporter type="xml" target="tabelaAgent" fileName="usuarios" />
+                    <p:dataExporter type="xml" target="tabelaProva" fileName="provas" />
                 </h:commandLink>
             </div>
 

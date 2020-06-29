@@ -8,9 +8,11 @@ package bean;
 import com.lowagie.text.BadElementException;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
+import com.lowagie.text.Image;
 import com.lowagie.text.PageSize;
 import model.Usuario;
 import dao.UsuarioDao;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.FillPatternType;
+import util.Relatorio;
 
 /**
  *
@@ -107,9 +110,9 @@ public class UsuarioBean{
         pdf.setPageSize(PageSize.A4);
 
         ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-        //String logo = servletContext.getRealPath("") + File.separator + "resources" + File.separator + "demo" + File.separator + "images" + File.separator + "prime_logo.png";
+        String logo = servletContext.getRealPath("") + File.separator + "resources" + File.separator + "images" + File.separator + "uniacademia.png";
 
-        // pdf.add(Image.getInstance(logo));
+        pdf.add(Image.getInstance(logo));
     }
     
     public void login() throws IOException {
@@ -134,6 +137,11 @@ public class UsuarioBean{
             FacesContext.getCurrentInstance().getExternalContext()
                     .redirect("cadastro.xhtml");
         }
+    }
+    
+    public void gerarRelatorio() throws IOException {
+        Relatorio relatorio = new Relatorio();
+        relatorio.getRelatorioAluno(usuarios);
     }
     
 }

@@ -11,7 +11,7 @@
             <div align="center">
                 
                 <p:dataTable var="lista" value="#{resultadoBean.resultados}"
-                             id="tabelaProva" emptyMessage="Nenhum registro encontrado"
+                             id="tabelaResultado" emptyMessage="Nenhum registro encontrado"
                              paginatorTemplate="{RowsPerPageDropdown} {CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                              paginator="true" rows="10" rowsPerPageTemplate="5,10,25,50,100,9999" style="width:100%">
 
@@ -60,23 +60,23 @@
 
                 <h:commandLink id="excel">
                     <p:graphicImage name="./images/exports/excel.png" />
-                    <p:dataExporter type="xls" target="tabelaAgent" fileName="usuarios" postProcessor="#{usuarioBean.postProcessXLS}" />
+                    <p:dataExporter type="xls" target="tabelaResultado" fileName="resultados" postProcessor="#{resultadoBean.postProcessXLS}" />
                 </h:commandLink>
 
                 <h:commandLink id="pdf">
                     <p:graphicImage name="./images/exports/pdf.png" />
-                    <p:dataExporter type="pdf" target="tabelaAgent" fileName="usuarios" preProcessor="#{usuarioBean.preProcessPDF}" />
+                    <p:dataExporter type="pdf" target="tabelaResultado" fileName="resultados" preProcessor="#{resultadoBean.preProcessPDF}" />
                 </h:commandLink>
 
 
                 <h:commandLink>
                     <p:graphicImage name="./images/exports/csv.png" width="24"/>
-                    <p:dataExporter type="csv" target="tabelaAgent" fileName="usuarios" />
+                    <p:dataExporter type="csv" target="tabelaResultado" fileName="resultados" />
                 </h:commandLink>
 
                 <h:commandLink>
                     <p:graphicImage  name="./images/exports/xml.png" width="24"/>
-                    <p:dataExporter type="xml" target="tabelaAgent" fileName="usuarios" />
+                    <p:dataExporter type="xml" target="tabelaResultado" fileName="resultados" />
                 </h:commandLink>
             </div>
 
